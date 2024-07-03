@@ -1,34 +1,34 @@
 import sys
-
 import pygame
-
 from settings import Settings
+from ship import Ship
 
 class AlienInvasion:
-    #classe para gerenciar assets e comportamento
+    # manage assets and behaviour
 
     def __init__(self):
-        #inicia jogo e recursos
+        # initialize game and resources
         pygame.init()
         self.settings = Settings()
-
         self.screen = pygame.display.set_mode(
-            self.settings.screen.widht, self.settings.screen.height
+            (self.settings.screen_width, self.settings.screen_height)
         )
         pygame.display.set_caption("Alien Invasion")
-        #cor do background
-        self.bg_color = (230, 230, 230)
+
+        self.ship = Ship(self)
+        # background color
+        self.bg_color = self.settings.bg_color
 
     def run_game(self):
-
         while True:
-
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-            self.screen.fill(self.settings.bg.color)
+            self.screen.fill(self.bg_color)
+            self.ship.blitme()
             pygame.display.flip()
+
 if __name__ == '__main__':
-    #rodar o jogo
+    # rodar o jogo
     ai = AlienInvasion()
-    ai.run_game
+    ai.run_game()
