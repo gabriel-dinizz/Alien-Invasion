@@ -1,9 +1,15 @@
 from PIL import Image
 
-#abrir arquivo png
-
+# Open the first PNG image
 image_1 = Image.open("ship.png")
 
-bmp__image__path = "ship.bmp"
+# Save the first image as BMP
+bmp_image_path_1 = "ship.bmp"
+image_1.save(bmp_image_path_1)
 
-image_1.save(bmp__image__path)
+# Open the second PNG image
+image_2 = Image.open("alien.png")
+
+# Save the second image as BMP
+bmp_image_path_2 = "alien.bmp"
+image_2.save(bmp_image_path_2)
