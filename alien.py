@@ -21,3 +21,5 @@ class Alien(Sprite):
         #sguarda [psociao] horizontal do alien
         self.x = float(self.rect.x)
 
+        #aaa
+
