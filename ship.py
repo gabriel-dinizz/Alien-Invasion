@@ -11,7 +11,7 @@ class Ship:
 
         # Carrega a imagem da nave e obtém seu rect
         self.image = pygame.image.load(
-            "/Users/gabrieldiniz/dev/AlienInvasion/ship.bmp")
+            "/Users/gabrieldiniz/dev/AlienInvasion/images/ship.bmp")
         
         # Redimensiona a imagem da nave
         self.image = pygame.transform.scale(self.image, (60, 60))  # Defina o tamanho desejado aqui
