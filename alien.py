@@ -9,7 +9,7 @@ class Alien(Sprite):
 
         super().__init__()
         self.screen = ai_game.screen
-
+        self.settings = ai_game.settings
         #load the alien image and set its rect attribute
         self.image = pygame.image.load( "/Users/gabrieldiniz/dev/AlienInvasion/images/alien.bmp")
         self.rect = self.image.get_rect()
@@ -20,4 +20,8 @@ class Alien(Sprite):
 
         #sguarda [psociao] horizontal do alien
         self.x = float(self.rect.x)
+    def updat(self):
+        #move the alien to the right
+        self.x += self.settings.alien_speed
+        self.rect.x = self.x
 

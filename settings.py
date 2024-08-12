@@ -13,3 +13,4 @@ class Settings:
         self.bullet_color = (60, 60, 60)
         # limits player to 3 bullets
         self.bullets_allowed = 3
+        self.alien_speed = 1.0
