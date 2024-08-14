@@ -93,7 +93,7 @@ class AlienInvasion:
     def _update_bullets(self):
         # Update bullet positions
         self.bullets.update()
-
+    
         # Remove bullets that have disappeared
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
@@ -111,6 +111,21 @@ class AlienInvasion:
             bullet.draw_bullet()
         self.aliens.draw(self.screen)
         pygame.display.flip()
+
+    def _check_fleet_edges(self):
+        """Respond appropriately if any aliens have reached an edge."""
+        for alien in self.aliens.sprites():
+            if alien.check_edges():
+                self._change_fleet_direction()
+                break
+
+    def _change_fleet_direction(self):
+        """Drop the entire fleet and change the fleet's direction."""
+        for alien in self.aliens.sprites():
+            alien.rect.y += self.settings.fleet_drop_speed
+        self.settings.fleet_direction *= -1
+
+        
 
 if __name__ == '__main__':
     # Run the game
