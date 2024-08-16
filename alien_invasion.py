@@ -93,6 +93,8 @@ class AlienInvasion:
     def _update_bullets(self):
         # Update bullet positions
         self.bullets.update()
+        collisions = pygame.sprite.groupcollide(
+          self.bullets, self.aliens, True, True)
     
         # Remove bullets that have disappeared
         for bullet in self.bullets.copy():
@@ -102,6 +104,9 @@ class AlienInvasion:
     
     def _update_aliens(self):
         #update positions of all alien in the fleet
+        #Check if the fleet is at an edge,
+        #then update the positions of all aliens in the fleet.
+        self._check_fleet_edges()
         self.aliens.update()
 
     def _update_screen(self):
